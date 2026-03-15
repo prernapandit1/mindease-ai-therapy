@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0f172a;
+  --navy-light: #1e293b;
+  --navy-medium: #334155;
+  --mint: #6ee7b7;
+  --mint-light: #a7f3d0;
+  --mint-dark: #059669;
+  --lavender: #c4b5fd;
+  --lavender-dark: #7c3aed;
+  --cream: #fef9f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --bg-primary: #fef9f0;
+  --bg-secondary: #f1f5f9;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+}
+
+.dark {
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --card-bg: #1e293b;
+  --border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 3px; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+.float { animation: float 4s ease-in-out infinite; }
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #059669, #6ee7b7);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(6, 150, 105, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 150, 105, 0.4);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--mint-dark);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 2px solid var(--mint-dark);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--mint-dark);
+  color: white;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* Crisis banner */
+.crisis-banner {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+/* Chat bubbles */
+.chat-bubble-user {
+  background: linear-gradient(135deg, #059669, #6ee7b7);
+  color: white;
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+  padding: 0.875rem 1.125rem;
+  max-width: 75%;
+  margin-left: auto;
+  word-wrap: break-word;
+}
+
+.chat-bubble-sage {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+  padding: 0.875rem 1.125rem;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+/* Mood colors */
+.mood-1 { color: #dc2626; }
+.mood-2 { color: #ea580c; }
+.mood-3 { color: #d97706; }
+.mood-4 { color: #ca8a04; }
+.mood-5 { color: #84cc16; }
+.mood-6 { color: #22c55e; }
+.mood-7 { color: #10b981; }
+.mood-8 { color: #06b6d4; }
+.mood-9 { color: #6366f1; }
+.mood-10 { color: #8b5cf6; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #059669, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
